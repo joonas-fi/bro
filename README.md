@@ -40,6 +40,21 @@ Overall flow:
 	* `$ ./bro print hello.png`
 
 
+Architecture
+------------
+
+```mermaid
+flowchart TD
+    makePrintJobs --> looper[loop over print jobs]
+    looper --> looper
+    looper --> rasterizer
+    rasterizer --> rasterizeBarcode[rasterize barcode]
+    rasterizer --> rasterizeText[rasterize text]
+    looper --> D[send raster to printer]
+
+```
+
+
 Thanks
 ------
 
